@@ -17,16 +17,16 @@ public class RomantoInteger {
         roman_ch_to_int_map.put('M', 1000);
         
         char[] roman_chs=roman.toCharArray();
-        
-        int result=0;
-        int prev=Integer.MAX_VALUE,cur=-1;
-        //CMIC
-        for(int i=0;i<roman_chs.length;i++){
-            cur=roman_ch_to_int_map.get(roman_chs[i]);
-            if(cur>prev)
-                result-=(prev*2);
-            
-            result+=cur;
+        int n=roman_chs.length;
+        int result=roman_ch_to_int_map.get(roman_chs[n-1]);
+        int prev=result;
+        for(int i=n-2;i>=0;i--)
+        {
+            int cur = roman_ch_to_int_map.get(roman_chs[i]);
+            if(cur<prev)
+                result-=cur;
+            else
+                result+=cur;
             prev=cur;
         }
         
