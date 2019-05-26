@@ -40,6 +40,25 @@ WebScrapper scrapper2 = new WebScrapper.WebScrapperBuilder().getTopKCrawler(50).
 2)	In Memory store used by MapIndexer can be enhanced to use Trie and can be stored in distributed memory data store to increase fault tolerance and reliability for search queries. 
 3)	We can also build ranking and increase relevance for search results by enhancing Aggregator. 
 
+## Sample Runs
+
+/test/java/WebScrapperTest
+
+1) Search query: spielberg
+Search query: spielberg leonardo
+Initializating...
+Started fetching movie Links...
+Parsing movie sites...................................................Initialization complete
+[Schindler's List, Saving Private Ryan]
+[]
+
+2) Search query: spielberg leonardo Using Union Aggregator
+Initializating...
+Started fetching movie Links...
+Parsing movie sites...................................................Initialization complete
+[Schindler's List, Saving Private Ryan, The Departed, Inception]
+
+
 ## Build Instructions
 
 $ set JAVA_HOME=C:\Program Files\Java\jdk1.8.0_25
