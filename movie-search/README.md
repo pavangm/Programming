@@ -1,4 +1,4 @@
-#Code Structure
+# Code Structure and project details
 
 Code can be been divided into 4 parts. 
 1)	Crawler : This part of the code takes care of fetching the required movie links to be parsed. 
@@ -8,7 +8,7 @@ Code can be been divided into 4 parts.
 5)	WebScrapper and WebScrappe Builder: This part of the code integrates above four parts and builds the in-memory data store which will return the movie names associated with search terms. 
 The project uses Builder Design Pattern. This pattern helps to choose various implementations of Crawler, Parser, Indexer and Aggregator and returns the WebScrapper object upon calling build method. 
 
-##Crawler: (com.search.crawl.*)
+## Crawler: (com.search.crawl.*)
 There are two files. 
 1) Interface : Crawler 
 2) Class: TopKImdbCrawler. 
@@ -19,13 +19,13 @@ There are two files.
 2)	Class: WordLengthParser
 This class processes keywords in Imdb movie title link. For simplicity only main cast and director information is processed. WordLengthParser processes the words which are atleast k length. 
 
-##Indexer: (com.search.index.*)
+## Indexer: (com.search.index.*)
 There are two files.
 1)	Interface: Indexer
 2)	Class: Map Indexer
 This class indexes the search results for the movie and indexes all the keywords generated from parser to the movie name using Map data structure. Since, the scope of project is limited, map is used. Trie would be a better data structure handle memory for future enhancements. 
 
-##Aggregator: (com.search.aggr.*)
+## Aggregator: (com.search.aggr.*)
 There are 3 files. 
 1)	Interface: Aggregator
 2)	Class: IntersectAggregator
@@ -35,7 +35,7 @@ Builder design pattern can be used when customizing the scrapper.
 Example code snippet: 
 WebScrapper scrapper2 = new WebScrapper.WebScrapperBuilder().getTopKCrawler(50).getUnionAggregator().build();
 
-#Future Enhancements
+# Future Enhancements
 1)	We can use part of speech tagging and advanced Natural Language processing techniques to extract relevant keywords instead of depending on particular location inside title page. Example, We can extract all the proper nouns from the website. This will enhancement for Parser. 
 2)	In Memory store used by MapIndexer can be enhanced to use Trie and can be stored in distributed memory data store to increase fault tolerance and reliability for search queries. 
 3)	We can also build ranking and increase relevance for search results by enhancing Aggregator. 
