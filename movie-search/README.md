@@ -13,7 +13,8 @@ There are two files.
 1) Interface : Crawler 
 2) Class: TopKImdbCrawler. 
 This class helps to configure website for top k movie sites. These helps for testing the program quickly and run test cases and verify the results. Default setting of 1000 is used by WebScrapperBuilder. 
-Parser: (com.search.parse.*)
+
+## Parser: (com.search.parse.*)
 There are two files.
 1)	Interface: Parser
 2)	Class: WordLengthParser
